@@ -78,6 +78,12 @@ input[type="text"]{
     border-radius: .8rem 0 0 .8rem;
 }
 
+input[type="text"]:focus{
+    outline: none;
+    border-color: #95d6b7;
+    box-shadow: 0 0 10px #95d6b7;
+}
+
 input[type="submit"]{
     width: 8rem;
     color: #95d6b7;
@@ -91,4 +97,9 @@ input[type="submit"], input[type="text"]{
 
 input[type="submit"], #clear, i{
     cursor: pointer;
+}
+
+.checked{
+    color: #828282;
+    text-decoration: line-through;
 }
