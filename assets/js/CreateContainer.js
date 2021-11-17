@@ -10,7 +10,6 @@ export const CreateContainer = {
         this.input();
         this.listContainer();
         this.clearButton();
-        this.CreateCanvas();
         this.restoreList();
     },
 
@@ -66,15 +65,6 @@ export const CreateContainer = {
     },
 
     /**
-     * Create the canvas for chart.js
-     */
-    CreateCanvas: function (){
-        let canvas = document.createElement("canvas");
-        canvas.id = "myChart";
-        document.body.append(canvas);
-    },
-
-    /**
      * Search in the localStorage to restore the list
      */
     restoreList: function (){
@@ -82,6 +72,10 @@ export const CreateContainer = {
             if (localStorage.getItem(i) !== "del"){
                 CreateListLine.lineList();
                 CreateListLine.titleList(localStorage.getItem(i), document.querySelectorAll(".lineList")[0]);
+                let itemValue = document.querySelectorAll(".lineList")[0].firstChild.innerHTML;
+                if (itemValue.charAt(itemValue.length-1) === "-"){
+                    document.querySelectorAll(".lineList")[0].firstChild.className = "titleList checked";
+                }
             }
         }
     }

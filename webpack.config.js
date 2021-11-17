@@ -28,9 +28,17 @@ module.exports = {
                             url: true,
                             sourceMap: true,
                         }
-                    }
+                    },
                 ],
             },
+            {
+                test: /\.js$/i,
+                loader: "babel-loader",
+                options: {
+                    presets: ['@babel/preset-env'],
+                    plugins: ['@babel/plugin-proposal-object-rest-spread']
+                }
+            }
         ],
     },
 

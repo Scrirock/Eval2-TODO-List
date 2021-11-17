@@ -1,4 +1,5 @@
 import {CreateListLine} from "./CreateListLine";
+import {Creategraph} from "./Creategraph";
 
 export const CreateIcon = {
 
@@ -40,7 +41,15 @@ export const CreateIcon = {
         container[0].append(deleteIcon);
 
         check.addEventListener("click", (e)=>{
-            e.target.parentNode.previousSibling.className = "titleList checked";
+            let item = e.target.parentNode.previousSibling;
+
+            item.className = "titleList checked";
+
+            for (let key in localStorage){
+                if (localStorage.getItem(key) === item.innerHTML){
+                    localStorage.setItem(key, item.innerHTML+"-");
+                }
+            }
         });
 
         edit.addEventListener("click", (e)=>{
@@ -74,6 +83,7 @@ export const CreateIcon = {
                 }
             }
             e.target.parentNode.parentNode.remove();
+            Creategraph.createGraph();
         });
 
     }

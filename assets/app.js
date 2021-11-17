@@ -8,9 +8,13 @@ Creategraph.createGraph();
 
 document.querySelector("#clear").addEventListener("click", ()=>{
     const allList = document.querySelectorAll(".lineList");
+    for (let j = 0; j < localStorage.length; j++){
+        localStorage.setItem(j, "del");
+    }
     for (let i = 0; i < allList.length; i++){
         allList[i].remove();
     }
+    Creategraph.createGraph();
 });
 
 document.querySelector("input[type='submit']").addEventListener("click", (e)=>{
