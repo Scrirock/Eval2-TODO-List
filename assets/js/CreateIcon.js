@@ -69,6 +69,11 @@ export const CreateIcon = {
                 if (e.key === "Enter"){
                     if (input.value){
                         CreateListLine.titleList(input.value, e.target.parentNode)
+                        for (let key in localStorage){
+                            if (localStorage.getItem(key) === input.value){
+                                localStorage.setItem(key, input.value);
+                            }
+                        }
                         input.remove();
                     }
                 }
